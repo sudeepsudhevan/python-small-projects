@@ -4,6 +4,7 @@ def caesar(start_text, shift_amount, cipher_direction):
   end_text = ""
   if cipher_direction == "decode":
     shift_amount *= -1
+    
   for char in start_text:
     
     #Can you fix the code to keep the number/symbol/space when the text is encoded/decoded?
@@ -29,7 +30,7 @@ while run_again:
   
   caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
   
-  type = input("Type 'yes' if yoy want to go again. Otherwise type 'no'.\n")
+  type = input("Type 'yes' if you want to go again. Otherwise type 'no'.\n")
   if type == 'no':
     run_again = False
     print("Good bye")  
