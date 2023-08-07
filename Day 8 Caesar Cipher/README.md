@@ -26,6 +26,8 @@ Type the shift number:
 Here's the encoded result: mjqqt
 Type 'yes' if you want to go again. Otherwise type 'no'.
 yes
+
+
 Type 'encode' to encrypt, type 'decode' to decrypt:
 decode
 Type your message:
@@ -35,4 +37,6 @@ Type the shift number:
 Here's the decoded result: hello
 Type 'yes' if you want to go again. Otherwise type 'no'.
 no
+
+
 Good bye
