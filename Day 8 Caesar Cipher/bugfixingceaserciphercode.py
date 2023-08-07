@@ -39,6 +39,7 @@ while run_again:
   caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
   
   type = input("Type 'yes' if yoy want to go again. Otherwise type 'no'.\n")
+  print("\n")
   if type == 'no':
     run_again = False
     print("Good bye")  
