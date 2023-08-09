@@ -43,12 +43,13 @@ def play_game():
   print(logo)
   user_choice = []
   computer_choice = []
+  is_game_over = False
 
 
   for _ in range(2):
     user_choice.append(deal_card())
     computer_choice.append(deal_card())
-  is_game_over = False
+  
   
   
   while not is_game_over:
