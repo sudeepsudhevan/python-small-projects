@@ -16,6 +16,7 @@ else:
   attempt = 5
 
 def compare(actual_number,guess_number,attempt):
+  """Return the attempt number left"""
   if actual_number == guess_number:
     print(f"You got it! The answer was {actual_number}.")
     return 0
