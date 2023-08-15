@@ -6,7 +6,7 @@ The correct answer was: True.
 Your current score is: 1/1.
 
 
-Q.2: Joseph Stalin&#039;s real name was Ioseb Bessarionis dze Dzugashvili. (True/False): false
+Q.2: Joseph Stalin's real name was Ioseb Bessarionis dze Dzugashvili. (True/False): false
 That's wrong.
 The correct answer was: True.
 Your current score is: 1/2.
