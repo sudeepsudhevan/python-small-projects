@@ -23,7 +23,14 @@ for directions in range(0, 361, 5):
     tim.color(random_color())
     tim.circle(100)
     tim.setheading(directions)
-
+    
+# def draw_spirograph(size_of_gap):
+#     for _ in range(int(360/ size_of_gap)):
+#         tim.color(random_color())
+#         tim.circle(100)
+#         tim.setheading(tim.heading()+ size_of_gap)
+# 
+# draw_spirograph(5)
 screen = t.Screen()
 
 screen.exitonclick()
