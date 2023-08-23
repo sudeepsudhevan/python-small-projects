@@ -25,7 +25,7 @@ with open("input/Letters/starting_letter.txt") as letter_file:
         new_letter = letter_contents.replace(PLACEHOLDER, stripped_name)
         print(new_letter)
 
-        with open(f"output/ReadyToSend/letter_for_{stripped_name}.txt", mode="w") as file:
-            file.write(new_letter)
+        with open(f"output/ReadyToSend/letter_for_{stripped_name}.txt", mode="w") as completed_letter:
+            completed_letter.write(new_letter)
 
 
