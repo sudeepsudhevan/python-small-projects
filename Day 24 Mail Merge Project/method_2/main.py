@@ -9,7 +9,7 @@
 #     stripped_name = name.strip()
 #     changed_sentence = invite_letter.replace("[name]", f"{stripped_name}")
 #
-#     with open(f"output/ReadyToSend/letter_for_{stripped_name}", mode="w") as file:
+#     with open(f"output/ReadyToSend/letter_for_{stripped_name}.txt", mode="w") as file:
 #         file.write(f"{changed_sentence}")
 
 PLACEHOLDER = "[name]"
@@ -25,7 +25,7 @@ with open("input/Letters/starting_letter.txt") as letter_file:
         new_letter = letter_contents.replace(PLACEHOLDER, stripped_name)
         print(new_letter)
 
-        with open(f"output/ReadyToSend/letter_for_{stripped_name}", mode="w") as file:
+        with open(f"output/ReadyToSend/letter_for_{stripped_name}.txt", mode="w") as file:
             file.write(new_letter)
 
 
