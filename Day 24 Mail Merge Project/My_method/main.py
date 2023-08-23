@@ -9,5 +9,5 @@ for name in name_list:
     stripped_name = name.strip()
     changed_sentence = invite_letter.replace("[name]", f"{stripped_name}")
 
-    with open(f"output/ReadyToSend/letter_for_{stripped_name}", mode="w") as file:
+    with open(f"output/ReadyToSend/letter_for_{stripped_name}.txt", mode="w") as file:
         file.write(f"{changed_sentence}")
