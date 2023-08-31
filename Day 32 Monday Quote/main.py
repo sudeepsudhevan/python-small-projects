@@ -9,7 +9,7 @@ now = dt.datetime.now()
 day_of_week = now.weekday()
 print(day_of_week)
 
-if day_of_week == 3:
+if day_of_week == 1:
     with open("quotes.txt") as file:
         list_of_quotes = file.readlines()
         random_quote = random.choice(list_of_quotes)
@@ -19,7 +19,7 @@ if day_of_week == 3:
         connection.starttls()
         connection.login(user=MY_EMAIL, password=PASSWORD)
         connection.sendmail(from_addr=MY_EMAIL, to_addrs="TO_EMAIL@yahoo.com",
-                            msg=f"Subject:Thursday Quote\n\n{random_quote}")
+                            msg=f"Subject:Monday Motivation\n\n{random_quote}")
 
 # import smtplib
 #
