@@ -1,73 +1,74 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from time import time, sleep
-from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException
+from time import sleep
+from selenium.webdriver import Keys
+from selenium.webdriver.support.ui import WebDriverWait
 
-FB_MAIL = "@gmail.com"
-FB_PASSWORD = ""
+TWITTER_EMAIL = "@gmail.com"
+TWITTER_PASSWORD = ""
+USER_NAME = ""
 
-chrome_options = webdriver.ChromeOptions()
-chrome_options.add_experimental_option("detach", True)
+PROMISED_DOWN = 15
+PROMISED_UP = 5
 
-driver = webdriver.Chrome(options=chrome_options)
-driver.get("https://tinder.com/")
 
-# login button
+class InternetSpeedTwitterBot:
+    def __init__(self):
+        self.chrome_options = webdriver.ChromeOptions()
+        self.chrome_options.add_experimental_option("detach", True)
+        self.driver = webdriver.Chrome(options=self.chrome_options)
+        self.down = 0
+        self.up = 0
 
-sleep(10)
-login_button = driver.find_element(By.XPATH, value='//div[text()="Log in"]')
-login_button.click()
+    def get_internet_speed(self):
+        self.driver.get(url="https://www.speedtest.net/")
 
-# Facebook
-input("facebook")
-sleep(2)
-fb_button = driver.find_element(By.XPATH, value='//div[text()="Log in with Facebook"]')
-fb_button.click()
+        # sleep(4)
+        # accept_cookies = self.driver.find_element(By.CLASS_NAME, value="onetrust-banner-options")
+        # accept_cookies.click()
 
-base_window = driver.window_handles[0]
-fb_window = driver.window_handles[1]
-driver.switch_to.window(fb_window)
+        sleep(5)
+        go_button = self.driver.find_element(By.CLASS_NAME, value="start-text")
+        go_button.click()
 
-sleep(2)
-email_input = driver.find_element(By.NAME, value="email")
-email_input.send_keys(FB_MAIL)
+        sleep(100)
+        self.down = self.driver.find_element(By.CLASS_NAME, value="download-speed").text
+        self.up = self.driver.find_element(By.CLASS_NAME, value="upload-speed").text
+        print(self.down)
+        print(self.up)
 
-password_input = driver.find_element(By.NAME, value="pass")
-password_input.send_keys(FB_PASSWORD)
+    def tweet_at_provider(self):
+        self.driver.get("https://twitter.com/i/flow/login")
 
-fb_login = driver.find_element(By.NAME, value="login")
-fb_login.click()
+        sleep(15)
+        email = self.driver.find_element(By.NAME, value="text")
+        email.send_keys(TWITTER_EMAIL)
+        sleep(2)
+        email.send_keys(Keys.ENTER)
 
-driver.switch_to.window(base_window)
+        # sleep(2)
+        # user_name = self.driver.find_element(By.NAME, value="text")
+        # user_name.send_keys(USER_NAME)
+        # user_name.send_keys(Keys.ENTER)
 
-print(driver.title)
-sleep(10)
+        sleep(2)
+        password = self.driver.find_element(By.NAME, value="password")
+        password.send_keys(TWITTER_PASSWORD)
+        sleep(2)
+        password.send_keys(Keys.ENTER)
 
-allow_location = driver.find_element(By.XPATH, value='//div[text()="Allow"]')
-allow_location.click()
+        sleep(5)
+        tweet_compose = self.driver.find_element(By.CSS_SELECTOR, value='br[data-text="true"]')
 
-notification_button = driver.find_element(By.XPATH, value='//div[text()="Not interested"]')
-notification_button.click()
+        tweet = f"Hey Internet Provider, why is my internet speed {self.down}down/{self.up}up when I pay for {PROMISED_DOWN}down/{PROMISED_UP}up?"
+        tweet_compose.send_keys(tweet)
+        sleep(3)
 
-# cookie= driver.find_element(By.XPATH, value='//div[text()=""]')
-sleep(15)
-for n in range(100):
+        tweet_button = self.driver.find_element(By.XPATH,
+                                                '//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div/div/div['
+                                                '3]/div/div[2]/div[1]/div/div/div/div[2]/div[2]/div[2]/div/div/div['
+                                                '2]/div[3]/div/span/span')
+        tweet_button.click()
 
-    sleep(3)
-
-    try:
-        print("called")
-        like_button = driver.find_element(By.XPATH,
-                                          value='//*[@id="c-1445344539"]/div/div[1]/div/div/main/div/div/div[1]/div/div[4]/div/div[4]/button')
-        like_button.click()
-
-    except ElementClickInterceptedException:
-        try:
-            match_popup = driver.find_element(By.CSS_SELECTOR, value=".itsAMatch a")
-            match_popup.click()
-
-        except NoSuchElementException:
-            sleep(2)
-
-driver.quit()
+        sleep(2)
+        self.driver.quit()
