@@ -3,7 +3,7 @@ current_time = time.time()
 print(current_time)
 
 def speed_calc_decorator(function):
-    def wrapper_function():
+    def wrapper_function():            # function
         start_time = time.time()
         function()
         end_time = time.time()
