@@ -1,7 +1,9 @@
-Pull a random sample from a DataFrame using .sample()
+# Data Analytics
 
-How to find duplicate entries with .duplicated() and .drop_duplicates()
+* Pull a random sample from a DataFrame using `.sample()`
 
-How to convert string and object data types into numbers with .to_numeric()
+* How to find duplicate entries with `.duplicated()` and `.drop_duplicates()`
 
-How to use plotly to generate beautiful pie, donut, and bar charts as well as box and scatter plots
+* How to convert string and object data types into numbers with `.to_numeric()`
+
+* How to use plotly to generate beautiful pie, donut, and bar charts as well as box and scatter plots
