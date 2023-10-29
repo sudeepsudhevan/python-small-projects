@@ -15,5 +15,5 @@
 * How to add and configure a Legend in Matplotlib.
 
 * Use NumPy's `.where()` function to process elements depending on a condition.
-  Example:
+  Example:                                                                          .
   `df_monthly['washing_hands'] = np.where(df_monthly['date'] < handwashing_start, 'No', 'Yes')`
